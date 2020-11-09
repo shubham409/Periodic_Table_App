@@ -3,6 +3,7 @@ package com.example.importdb2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,38 +16,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TestAdapter mDbHelper = new TestAdapter(this);
 
-        mDbHelper.createDatabase();
-        mDbHelper.open();
-
-        Cursor testdata = mDbHelper.getTestData();
-        int value =testdata.getCount();
-
-
-        mDbHelper.close();
-        LottieAnimationView lotiview = findViewById(R.id.animationView);
-        lotiview.addAnimatorListener(new Animator.AnimatorListener() {
+        Thread timer = new Thread(){
             @Override
-            public void onAnimationStart(Animator animation) {
-
+            public void run(){
+                try {
+                    sleep(5000);
+                    Intent intent = new Intent(getBaseContext(),ListActivity.class);
+                    startActivity(intent);
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+        };
+        timer.start();
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-
-                setContentView(R.layout.go);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
+    }
+    public void changeActivity()
+    {
+        Intent intent = new Intent(this,ListActivity.class);
+        startActivity(intent);
     }
 }
