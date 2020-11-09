@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+
                 setContentView(R.layout.go);
             }
 
