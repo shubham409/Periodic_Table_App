@@ -6,10 +6,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/myicon"
         android:label="@string/new_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Importdb2">
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".ListActivity" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

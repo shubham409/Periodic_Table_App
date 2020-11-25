@@ -6,30 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+
+    >
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_margin="40dp"
-        android:background="@drawable/animebg"
-        app:layout_constraintBottom_toBottomOf="@+id/animationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/startthemebg"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/animationView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="ele4.json"
-        app:lottie_loop="false"
-        app:lottie_url="REPLACE_JSON_URL"
 
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-50dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="ele4.json"
+            app:lottie_loop="false"
+            app:lottie_url="REPLACE_JSON_URL"
+
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-50dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--        android:background="@drawable/startthemebg"-->
