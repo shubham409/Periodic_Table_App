@@ -118,7 +118,7 @@ puts markdown.to_html
 
 
 
-<h1/>   
+   
 <img src="app/src/main/assets/i1.png"  />
   
 ![](app/src/main/assets/i2.png)
