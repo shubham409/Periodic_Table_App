@@ -1,4 +1,4 @@
-# Periodic Table
+# Periodic Table App
 
 This is a regular paragraph.
 
