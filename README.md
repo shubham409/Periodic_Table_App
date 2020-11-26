@@ -1,4 +1,4 @@
-# my-studio
+# Periodic Table
 
 This is a regular paragraph.
 
