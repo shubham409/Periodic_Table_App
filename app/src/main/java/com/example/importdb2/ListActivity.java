@@ -1,23 +1,33 @@
 package com.example.importdb2;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+    private ActionBarDrawerToggle toggle;
 
+    private DrawerLayout drawerLayout;
+
+    private NavigationView navigationView;
     boolean doubleBackToExitPressedOnce = false;
     ListView listview;
 //    number of rows to show
@@ -28,6 +38,8 @@ public class ListActivity extends AppCompatActivity {
     String [] property=new String[num];
     String [] group=new String[num];
     String [] nature=new String[num];
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +53,7 @@ public class ListActivity extends AppCompatActivity {
         TestAdapter mDbHelper = new TestAdapter(this);
         mDbHelper.createDatabase();
         mDbHelper.open();
+
         Cursor testdata = mDbHelper.getTestData();
         for (int i = 1; i <= num; i++) {
             str[i-1]=testdata.getString(1);
@@ -110,7 +123,58 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        drawerLayout=findViewById(R.id.drawerLayout);
+        navigationView=findViewById(R.id.nav_view);
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.app_name,R.string.app_name);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.item1:
+                        Toast.makeText(ListActivity.this, "About Us", Toast.LENGTH_SHORT).show();
+
+
+                        return true;
+                    case R.id.item2:
+                        Toast.makeText(ListActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent (Intent.ACTION_SEND);
+                        intent.setType("message/rfc822");
+                        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"sm9080810@gmail.com"});
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Of Periodic Table App");
+                        intent.setPackage("com.google.android.gm");
+                        intent.putExtra(Intent.EXTRA_TEXT, "Hello. This is a message sent from Periodic Table app :-)");
+
+                        if (intent.resolveActivity(getPackageManager())!=null)
+                            startActivity(intent);
+                        else
+                            Toast.makeText(ListActivity.this,"Gmail App is not installed",Toast.LENGTH_SHORT).show();
+
+                        return true;
+
+                }
+                return true;
+            }
+        });
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {

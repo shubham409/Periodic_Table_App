@@ -47,6 +47,7 @@
                android:gravity="center"
                >
                <TextView
+                   android:padding="3dp"
                    android:layout_margin="5dp"
                    android:layout_width="match_parent"
                    android:layout_height="70dp"
@@ -71,7 +72,7 @@
                    android:textSize="20sp"
                    android:background="@drawable/oneviewbg2"
                    android:id="@+id/name"
-
+                    android:padding="3dp"
                    />
                <TextView
                    android:layout_margin="5dp"
@@ -79,6 +80,7 @@
                    android:layout_height="wrap_content"
                    android:gravity="center"
                    android:textSize="20sp"
+                   android:padding="3dp"
                    android:id="@+id/property"
                    android:background="@drawable/oneviewbg3"
                    />
@@ -89,10 +91,12 @@
                    android:gravity="center"
                    android:textSize="20sp"
                    android:id="@+id/group"
+                   android:padding="3dp"
                    android:background="@drawable/oneviewbg4"
                    />
                <TextView
                    android:layout_margin="5dp"
+                   android:padding="3dp"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:gravity="center"

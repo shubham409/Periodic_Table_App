@@ -36,9 +36,62 @@ public class DetailActivity extends AppCompatActivity {
         Cursor testdata = mDbHelper.getTestData();
         ImageView im = findViewById(R.id.image_view);
         im.setImageResource(img[at_index]);
-        TextView name = findViewById(R.id.text_view);
+
+        TextView name = findViewById(R.id.text_view1);
         testdata.moveToPosition(at_index);
         name.setText(testdata.getString(1));
+
+        TextView col2 = findViewById(R.id.text_view2);
+        testdata.moveToPosition(at_index);
+        col2.setText(testdata.getString(2));
+
+        TextView col3 = findViewById(R.id.text_view3);
+        testdata.moveToPosition(at_index);
+        col3.setText(testdata.getString(3));
+
+        TextView col4 = findViewById(R.id.text_view4);
+        testdata.moveToPosition(at_index);
+        col4.setText(testdata.getString(4));
+
+        TextView col5 = findViewById(R.id.text_view5);
+        testdata.moveToPosition(at_index);
+        col5.setText(testdata.getString(5));
+
+        TextView col6 = findViewById(R.id.text_view6);
+        testdata.moveToPosition(at_index);
+        col6.setText(testdata.getString(6));
+
+        TextView col7 = findViewById(R.id.text_view7);
+        testdata.moveToPosition(at_index);
+        col7.setText(testdata.getString(7));
+
+        String na= "N/A";
+        TextView col8 = findViewById(R.id.text_view8);
+        testdata.moveToPosition(at_index);
+        col8.setText(na);
+
+        TextView col9 = findViewById(R.id.text_view9);
+        testdata.moveToPosition(at_index);
+        col9.setText(na);
+
+        TextView col10 = findViewById(R.id.text_view10);
+        testdata.moveToPosition(at_index);
+        col10.setText(na);
+
+        TextView col11 = findViewById(R.id.text_view11);
+        testdata.moveToPosition(at_index);
+        col11.setText(na);
+
+        TextView col12 = findViewById(R.id.text_view12);
+        testdata.moveToPosition(at_index);
+        col12.setText(na);
+
+        TextView col13 = findViewById(R.id.text_view13);
+        testdata.moveToPosition(at_index);
+        col13.setText(na);
+
+
+
     }
 }
 //
