@@ -1,4 +1,4 @@
-# my-studio
+# Periodic Table App
 
 This is a regular paragraph.
 
@@ -118,9 +118,9 @@ puts markdown.to_html
 
 
 
-<h1/>   
+   
 <img src="app/src/main/assets/i1.png"  />
-<h1/>   
+  
 ![](app/src/main/assets/i2.png)
 
 
